@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Hidden Layer — 15 Devices for the Professional in Motion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+
+    :root {
+      --bg:              #0c0c0c;
+      --surface:         #131313;
+      --surface-hover:   #181818;
+      --border:          #242424;
+      --text:            #ede8df;
+      --muted:           #636363;
+      --accent:          #b8936a;
+
+      --cat-info:        #5a8fa8;
+      --cat-physio:      #6ea065;
+      --cat-env:         #c49840;
+      --cat-counter:     #a85050;
+      --cat-connect:     #4e6fa0;
+      --cat-wearable:    #8060a8;
+      --cat-recovery:    #409880;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      line-height: 1.6;
+    }
+
+    /* ─── HERO ─── */
+
+    .hero {
+      padding: 88px 48px 80px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 36px;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', Impact, sans-serif;
+      font-size: clamp(58px, 11vw, 128px);
+      line-height: 0.9;
+      letter-spacing: 0.025em;
+      color: var(--text);
+      margin-bottom: 40px;
+    }
+
+    .hero-title em {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .hero-rule {
+      width: 40px;
+      height: 1px;
+      background: var(--accent);
+      margin: 0 auto 36px;
+    }
+
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+      font-weight: 300;
+      font-style: italic;
+      color: #a8a099;
+      max-width: 580px;
+      margin: 0 auto 48px;
+      line-height: 1.75;
+    }
+
+    .hero-legend {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .legend-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── GRID ─── */
+
+    .grid-wrapper {
+      padding: 0;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ─── CARD ─── */
+
+    .card {
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+      transition: background 0.18s ease;
+      position: relative;
+    }
+
+    .card:hover {
+      background: var(--surface-hover);
+    }
+
+    .card-stripe {
+      height: 2px;
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    .card-body {
+      padding: 28px 30px 30px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 14px;
+    }
+
+    .category-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 8.5px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .device-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 8.5px;
+      letter-spacing: 0.1em;
+      color: #333;
+    }
+
+    .device-name {
+      font-family: 'Bebas Neue', Impact, sans-serif;
+      font-size: 30px;
+      line-height: 1.0;
+      letter-spacing: 0.03em;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .price {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    .price-note {
+      font-family: 'Space Mono', monospace;
+      font-size: 8.5px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .device-desc {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.7;
+      color: #bab3aa;
+      margin-bottom: 20px;
+    }
+
+    .use-case {
+      margin-bottom: 20px;
+      padding: 16px;
+      background: rgba(255,255,255,0.025);
+      border-left: 2px solid var(--border);
+    }
+
+    .use-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 7.5px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .use-case p {
+      font-size: 14.5px;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.65;
+      color: #98918a;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+      padding-top: 18px;
+    }
+
+    .tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 7.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 4px 9px;
+      line-height: 1.4;
+    }
+
+    /* ─── CATEGORY COLORS ─── */
+
+    .cat-info    .card-stripe    { background: var(--cat-info); }
+    .cat-physio  .card-stripe    { background: var(--cat-physio); }
+    .cat-env     .card-stripe    { background: var(--cat-env); }
+    .cat-counter .card-stripe    { background: var(--cat-counter); }
+    .cat-connect .card-stripe    { background: var(--cat-connect); }
+    .cat-wearable .card-stripe   { background: var(--cat-wearable); }
+    .cat-recovery .card-stripe   { background: var(--cat-recovery); }
+
+    .cat-info    .category-label { color: var(--cat-info); }
+    .cat-physio  .category-label { color: var(--cat-physio); }
+    .cat-env     .category-label { color: var(--cat-env); }
+    .cat-counter .category-label { color: var(--cat-counter); }
+    .cat-connect .category-label { color: var(--cat-connect); }
+    .cat-wearable .category-label{ color: var(--cat-wearable); }
+    .cat-recovery .category-label{ color: var(--cat-recovery); }
+
+    .cat-info    .use-case { border-left-color: var(--cat-info); }
+    .cat-physio  .use-case { border-left-color: var(--cat-physio); }
+    .cat-env     .use-case { border-left-color: var(--cat-env); }
+    .cat-counter .use-case { border-left-color: var(--cat-counter); }
+    .cat-connect .use-case { border-left-color: var(--cat-connect); }
+    .cat-wearable .use-case{ border-left-color: var(--cat-wearable); }
+    .cat-recovery .use-case{ border-left-color: var(--cat-recovery); }
+
+    /* ─── FOOTER ─── */
+
+    footer {
+      padding: 60px 48px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-rule {
+      width: 40px;
+      height: 1px;
+      background: var(--border);
+      margin: 0 auto 32px;
+    }
+
+    .footer-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .footer-sig {
+      font-family: 'Space Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #2e2e2e;
+      margin-top: 32px;
+    }
+
+    /* ─── RESPONSIVE ─── */
+
+    @media (max-width: 1080px) {
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding: 60px 24px 56px;
+      }
+
+      .hero-legend {
+        gap: 14px 20px;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card-body {
+        padding: 24px 20px 26px;
+      }
+
+      footer {
+        padding: 48px 24px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <p class="hero-eyebrow">Field Equipment &nbsp;·&nbsp; Complete Kit &nbsp;·&nbsp; 15 Devices</p>
+    <h1 class="hero-title">The <em>Hidden</em><br>Layer</h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">Devices carried by people who move through the world differently. Not for performance. For function. Each one earns its weight with an explanation the room will remember.</p>
+
+    <nav class="hero-legend" aria-label="Category legend">
+      <div class="legend-item">
+        <div class="legend-dot" style="background:var(--cat-info)"></div>
+        <span class="legend-label">Information Capture</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:var(--cat-physio)"></div>
+        <span class="legend-label">Physiological Edge</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:var(--cat-env)"></div>
+        <span class="legend-label">Environmental Awareness</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:var(--cat-counter)"></div>
+        <span class="legend-label">Counter-Surveillance</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:var(--cat-connect)"></div>
+        <span class="legend-label">Connectivity</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:var(--cat-wearable)"></div>
+        <span class="legend-label">Wearable Computing</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:var(--cat-recovery)"></div>
+        <span class="legend-label">Travel Recovery</span>
+      </div>
+    </nav>
+  </header>
+
+  <main class="grid-wrapper">
+    <div class="cards-grid">
+
+      <!-- 01 -->
+      <article class="card cat-info">
+        <div class="card-stripe"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="category-label">Information Capture</span>
+            <span class="device-num">01 / 15</span>
+          </div>
+          <h2 class="device-name">Plaud NotePin S</h2>
+          <div class="price-row">
+            <span class="price">$159</span>
+          </div>
+          <p class="device-desc">Plaud launched the original NotePin in 2023 as the first truly wearable AI recorder. The NotePin S (2025) adds a physical record button, Apple Find My support, and multiple wearing configurations: magnetic lapel pin, wristband, or lanyard. At 17 grams, it's imperceptible in use. It transcribes in 112 languages and routes recordings through your choice of AI model — GPT-5, Gemini 2.5 Pro, or Claude — against a library of over 10,000 professional templates covering meetings, interviews, and depositions. 20 hours of continuous recording on a single charge. 64GB onboard storage. The LED status indicator can be hard to read in bright light; the app confirms recording status immediately.</p>
+          <div class="use-case">
+            <span class="use-label">The moment it creates</span>
+            <p>You walk out of a two-hour negotiation with a structured summary, timestamped action items, and a full transcript — while the other side is still looking for their notes.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Deal Professionals</span>
+            <span class="tag">Journalists</span>
+            <span class="tag">Consultants</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 -->
+      <article class="card cat-info">
+        <div class="card-stripe"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="category-label">Information Capture</span>
+            <span class="device-num">02 / 15</span>
+          </div>
+          <h2 class="device-name">reMarkable Paper Pro Move</h2>
+          <div class="price-row">
+            <span class="price">$449</span>
+            <span class="price-note">+ Connect subscription</span>
+          </div>
+          <p class="device-desc">reMarkable launched the first serious e-ink writing tablet in 2016 and spent a decade refining a single idea: paper that doesn't betray you. The Paper Pro Move (2025) is their smallest device — a 7.3-inch color e-ink display in a magnesium frame thin enough to fit in a back pocket. Two-week battery life. No applications. No notifications. No browser. The only surface it offers is a blank page and a pen. Handwriting-to-text conversion works accurately even with fast, informal writing. Used by partners at major consulting firms and senior editors who need a thinking surface that doesn't fight back.</p>
+          <div class="use-case">
+            <span class="use-label">The moment it creates</span>
+            <p>It sits on every meeting table and draws a question before you've said anything. The answer — "it's a writing device with no internet connection" — tells the room something about how you think.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Executives</span>
+            <span class="tag">Consultants</span>
+            <span class="tag">Writers</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 -->
+      <article class="card cat-info">
+        <div class="card-stripe"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="category-label">Information Capture</span>
+            <span class="device-num">03 / 15</span>
+          </div>
+          <h2 class="device-name">Timekettle W4 Pro</h2>
+          <div class="price-row">
+            <span class="price">$380</span>
+          </div>
+          <p class="device-desc">Timekettle has built dedicated translation hardware since 2016. The W4 Pro, introduced at CES 2025, is the flagship — a bone-conduction voiceprint sensor that isolates the wearer's voice from ambient noise, achieving up to 98% translation accuracy in crowded environments. Bidirectional simultaneous translation in 42 languages and 95 accents. Personal glossary for industry-specific terminology. One earbud for you; one for your counterpart. Both parties speak their native language and hear the other's translated in real time, with a 1–3 second lag. The charging case doubles as a Bluetooth hub for calls.</p>
+          <div class="use-case">
+            <span class="use-label">The moment it creates</span>
+            <p>You hand the second earbud across the table. The entire dynamic of the meeting shifts before either of you has spoken a word.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">International Deal-Makers</span>
+            <span class="tag">Diplomats</span>
+            <span class="tag">Global Travelers</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 04 -->
+      <article class="card cat-info">
+        <div class="card-stripe"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="category-label">Information Capture</span>
+            <span class="device-num">04 / 15</span>
+          </div>
+          <h2 class="device-name">Livescribe Symphony Smartpen</h2>
+          <div class="price-row">
+            <span class="price">$150</span>
+          </div>
+          <p class="device-desc">Livescribe has made audio-synced smartpens since 2007 — the technology predates the smartphone. The Symphony is their most refined model, using a fine-point MEMS microphone array to record audio while you write, then creating a precise synchronization between each stroke on the page and the moment it was made. Use it with compatible dot-paper notebooks. After a meeting, tap any word in your handwritten notes and hear the conversation surrounding it. Transcription available via the companion app. To anyone in the room, it looks like a slightly thick pen.</p>
+          <div class="use-case">
+            <span class="use-label">The moment it creates</span>
+            <p>Three weeks later, you tap the word "indemnification" in your notes and hear six seconds of audio that changes the interpretation of a clause. The room was recorded. No one knew.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Attorneys</span>
+            <span class="tag">Journalists</span>
+            <span class="tag">Advisors</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 05 -->
+      <article class="card cat-physio">
+        <div class="card-stripe"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="category-label">Physiological Edge</span>
+            <span class="device-num">05 / 15</span>
+          </div>
+          <h2 class="device-name">Oura Ring 4</h2>
+          <div class="price-row">
+            <span class="price">$349</span>
+            <span class="price-note">+ $70 / year</span>
+          </div>
+          <p class="device-desc">Oura was founded in Finland in 2013 and pioneered the smart ring category. The Ring 4 (2024) is fully titanium, with an 8-day battery and six finishes — including a new ceramic edition in four colorways. It tracks HRV, sleep stages, body temperature, readiness scores, and cumulative stress. A 2026 update added AI models trained on clinical physiology research. Used by NBA teams, special operations units, and the majority of high-performance executives who have adopted any wearable at all. Functionally, the insight that travels: it tells you when you're actually recovered. That number is consistently different from when you feel recovered.</p>
+          <div class="use-case">
+            <span class="use-label">The moment it creates</span>
+            <p>You land in Singapore after 22 hours in transit. The ring gives you a readiness score of 43. You reschedule the morning meeting. You were right to.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">High-Performance Executives</span>
+            <span class="tag">Frequent Long-Haul Flyers</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 06 -->
+      <article class="card cat-physio">
+        <div class="card-stripe"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="category-label">Physiological Edge</span>
+            <span class="device-num">06 / 15</span>
+          </div>
+          <h2 class="device-name">Apollo Neuro</h2>
+          <div class="price-row">
+            <span class="price">$349</span>
+          </div>
+          <p class="device-desc">Designed by neuroscientists and physicians at the University of Pittsburgh and launched in 2020, the Apollo Neuro holds FDA Breakthrough Device Designation for PTSD-related research. It is not a tracker — it produces no biometric data and measures nothing. Instead, it sends precisely calibrated vibration patterns to the wrist or ankle that stimulate the vagus nerve, shifting the parasympathetic nervous system toward focus, calm, or sleep depending on the mode. Backed by published peer-reviewed research. No subscription required. Worn on the wrist, it looks like a plain black band. Worn on the ankle, it's invisible entirely.</p>
+          <div class="use-case">
+            <span class="use-label">The moment it creates</span>
+            <p>Someone asks about the plain band on your wrist. You explain that it modulates your parasympathetic nervous system. The conversation that follows has a quality that did not exist thirty seconds ago.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Executives Under Sustained Pressure</span>
+            <span class="tag">Long-Haul Travelers</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 07 -->
+      <article class="card cat-env">
+        <div class="card-stripe"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="category-label">Environmental Awareness</span>
+            <span class="device-num">07 / 15</span>
+          </div>
+          <h2 class="device-name">ATMOTUBE PRO</h2>
+          <div class="price-row">
+            <span class="price">$200</span>
+          </div>
+          <p class="device-desc">Founded in 2015, ATMOTUBE built the PRO model for environmental researchers and first responders. It continuously reads carbon monoxide, volatile organic compounds, PM1, PM2.5, and PM10, displaying readings in real time via Bluetooth to a phone app. Two things matter most in travel contexts: CO poisoning is a documented cause of international traveler deaths, with many cases initially recorded as cardiac events in hotels with faulty heating systems. Separately, published research has established that elevated CO2 in enclosed rooms meaningfully impairs executive function and decision quality. Set on a conference table, this device reads both and flags when either crosses threshold.</p>
+          <div class="use-case">
+            <span class="use-label">The moment it creates</span>
+            <p>The device sits on the table. Someone asks what it measures. The answer — that the air in most conference rooms actively makes people worse at thinking — is something no one in the room forgets.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">International Travelers</span>
+            <span class="tag">Health-Conscious Executives</span>
+            <span class="tag">Risk-Aware Professionals</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 08 -->
+      <article class="card cat-env">
+        <div class="card-stripe"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="category-label">Environmental Awareness</span>
+            <span class="device-num">08 / 15</span>
+          </div>
+          <h2 class="device-name">RadiaCode 103</h2>
+          <div class="price-row">
+            <span class="price">$295</span>
+          </div>
+          <p class="device-desc">The RadiaCode is not a standard Geiger counter. It uses a CsI(Tl) scintillation crystal to function as a true gamma spectrometer — identifying specific isotopes rather than simply registering radiation events. It measures levels up to 40 times faster than conventional Geiger counters and maps readings by GPS coordinate in real time on a paired phone via Bluetooth. Most environments read consistent baseline levels. In specific geographies — around nuclear facilities, certain transit corridors, post-incident zones — the device reads differently. Pocket-sized. The knowledge itself is the value. Currently Trustpilot-rated 5 stars across over 1,500 verified reviews.</p>
+          <div class="use-case">
+            <span class="use-label">The moment it creates</span>
+            <p>You set it on a hotel desk in a city where this question has professional meaning. The number it produces is something most people in that city don't know. You do.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Geopolitical Risk Professionals</span>
+            <span class="tag">Field Journalists</span>
+            <span class="tag">Researchers</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 09 -->
+      <article class="card cat-counter">
+        <div class="card-stripe"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="category-label">Counter-Surveillance</span>
+            <span class="device-num">09 / 15</span>
+          </div>
+          <h2 class="device-name">FLIR Edge Pro</h2>
+          <div class="price-row">
+            <span class="price">~$600</span>
+          </div>
+          <p class="device-desc">Teledyne FLIR has supplied thermal imaging to military and law enforcement for decades. The Edge Pro — formerly FLIR ONE Edge Pro — was the first truly wireless mobile thermal camera, connecting to any iOS or Android smartphone via Bluetooth and Wi-Fi without a physical connector and operating up to 30 meters from the paired device. It produces 160×120 thermal imagery overlaid with visible-light detail via FLIR's MSX technology. Hidden electronics generate heat. A covert camera concealed in a clock housing, smoke detector, or behind a mirror produces a distinct thermal signature invisible to the naked eye. IP54-rated for dust and moisture. 2.5-hour battery with 15-minute fast charge.</p>
+          <div class="use-case">
+            <span class="use-label">The moment it creates</span>
+            <p>You check into a hotel room in a city where the question matters. You spend four minutes with the camera. You either sleep well or you don't — but you know why.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Security-Aware Executives</span>
+            <span class="tag">Field Journalists</span>
+            <span class="tag">High-Risk Travelers</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 10 -->
+      <article class="card cat-counter">
+        <div class="card-stripe"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="category-label">Counter-Surveillance</span>
+            <span class="device-num">10 / 15</span>
+          </div>
+          <h2 class="device-name">JMDHKK K18 RF Detector</h2>
+          <div class="price-row">
+            <span class="price">$80</span>
+          </div>
+          <p class="device-desc">Consumer-grade RF bug detectors entered the market around 2015 as surveillance hardware became miniaturized and widely available. The K18 uses two distinct detection methods: broadband RF scanning for active wireless transmitters and infrared lens detection for passive optical components. These cover the two primary categories of surveillance hardware in use. Paired with the FLIR Edge Pro, it constitutes a complete room protocol: FLIR sweeps broadly for thermal anomalies; the K18 scans specifically for RF emissions and optical components. The full sweep takes under five minutes. A protocol is categorically different from paranoia, and the distinction is visible to any professional who understands why you're doing it.</p>
+          <div class="use-case">
+            <span class="use-label">The moment it creates</span>
+            <p>Having a two-device sweep protocol signals something specific to the right audience. It says that your threat model has been thought through, not improvised.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">High-Risk Environment Travelers</span>
+            <span class="tag">International Business Travelers</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 11 -->
+      <article class="card cat-connect">
+        <div class="card-stripe"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="category-label">Connectivity</span>
+            <span class="device-num">11 / 15</span>
+          </div>
+          <h2 class="device-name">Starlink Mini</h2>
+          <div class="price-row">
+            <span class="price">$599</span>
+            <span class="price-note">+ $50 / month Roam</span>
+          </div>
+          <p class="device-desc">SpaceX launched Starlink in 2019 as a low-earth orbit satellite internet constellation. The Mini form factor, introduced in 2024, was designed explicitly for portability — a flat antenna approximately the size of a thick hardcover book that folds for transport and deploys in minutes with a clear sky view. It connects to over 6,000 satellites in low earth orbit, providing real broadband speeds — not the nominal speeds of business-class hotel Wi-Fi, but actual throughput — in geographies where terrestrial infrastructure is unreliable or compromised. For PE due diligence trips to emerging markets, it eliminates the connectivity variable entirely. For sensitive communications in any location, it provides a channel that bypasses local infrastructure.</p>
+          <div class="use-case">
+            <span class="use-label">The moment it creates</span>
+            <p>You set it on a hotel balcony in a market where business-class Wi-Fi is 2 megabits of disappointment. You run a video call without thinking about it. The other side asks where you are.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">PE Deal Teams</span>
+            <span class="tag">Political Risk Consultants</span>
+            <span class="tag">Remote Field Professionals</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 12 -->
+      <article class="card cat-info">
+        <div class="card-stripe"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="category-label">Information Capture</span>
+            <span class="device-num">12 / 15</span>
+          </div>
+          <h2 class="device-name">IRIScan Book 5 Pro</h2>
+          <div class="price-row">
+            <span class="price">$130</span>
+          </div>
+          <p class="device-desc">IRIS has built document recognition technology since 1987 and supplied OCR software to Apple and Microsoft. The Book 5 Pro is a handheld wand scanner — a device that rolls across any flat surface, capturing documents at high resolution directly to built-in memory or a microSD card, with no computer and no power source beyond its internal battery. It handles contracts, printed reports, physical maps, whiteboards, and documents of any origin. In a due diligence context, the ability to walk out of a site visit with a digitized record of physical documents is the kind of operational detail that becomes significant much later, often in ways that couldn't be anticipated at the time.</p>
+          <div class="use-case">
+            <span class="use-label">The moment it creates</span>
+            <p>The physical document that was never meant to leave the room has left the room. Digitized. In your bag. Available for comparison six months from now.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Deal Professionals</span>
+            <span class="tag">Attorneys</span>
+            <span class="tag">Field Researchers</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 13 -->
+      <article class="card cat-connect">
+        <div class="card-stripe"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="category-label">Connectivity</span>
+            <span class="device-num">13 / 15</span>
+          </div>
+          <h2 class="device-name">Garmin inReach Mini 2</h2>
+          <div class="price-row">
+            <span class="price">$350</span>
+            <span class="price-note">+ $15–35 / month subscription</span>
+          </div>
+          <p class="device-desc">Garmin entered the satellite communicator market in 2011. The inReach Mini 2 operates over the Iridium network — 66 low-earth orbit satellites providing genuine global coverage, including over the poles, where no other network reaches. It supports two-way text messaging, live GPS tracking, and interactive SOS with a 24/7 staffed response coordination center. IPX7 waterproof, MIL-STD-810 rated. 14-day battery at 10-minute tracking intervals. Where Starlink provides bandwidth, the inReach provides a lifeline: the message that gets out when nothing else will. They are not substitutes. The subscription note: decide at purchase whether to maintain it year-round or activate as needed. The former is more expensive. The latter is what you'll regret once.</p>
+          <div class="use-case">
+            <span class="use-label">The moment it creates</span>
+            <p>Clipped to a bag strap in a hotel lobby, it signals something about the calibration of the person carrying it. So does the fact that the subscription is active.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">International Travelers</span>
+            <span class="tag">Field Professionals</span>
+            <span class="tag">Security Protocol Adherents</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 14 -->
+      <article class="card cat-wearable">
+        <div class="card-stripe"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="category-label">Wearable Computing</span>
+            <span class="device-num">14 / 15</span>
+          </div>
+          <h2 class="device-name">Ray-Ban Meta Smart Glasses</h2>
+          <div class="price-row">
+            <span class="price">$329</span>
+          </div>
+          <p class="device-desc">Meta and EssilorLuxottica launched the first Ray-Ban Stories in 2021. The current Meta Smart Glasses integrate a voice-activated Meta AI assistant, open-ear directional audio, a 12MP camera, and calls — in frames visually identical to standard Ray-Ban Wayfarer and Headliner styles. There is no screen. No display. No visible indication that anything is happening beyond wearing glasses. The AI assistant responds to whispered commands without requiring a phone to leave a pocket. The camera captures on a single tap. To anyone who doesn't recognize them, they are sunglasses. To the room's minority who do recognize them, they are a signal worth asking about.</p>
+          <div class="use-case">
+            <span class="use-label">The moment it creates</span>
+            <p>People who recognize them ask immediately. People who don't never know. Both responses are useful in different contexts, and neither requires you to do anything.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Executives</span>
+            <span class="tag">Frequent Travelers</span>
+            <span class="tag">Ambient AI Adopters</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 15 -->
+      <article class="card cat-recovery">
+        <div class="card-stripe"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="category-label">Travel Recovery</span>
+            <span class="device-num">15 / 15</span>
+          </div>
+          <h2 class="device-name">Kokoon Nightbuds</h2>
+          <div class="price-row">
+            <span class="price">$200</span>
+          </div>
+          <p class="device-desc">Kokoon was founded in 2014 with a specific problem statement: sleep in transit is categorically different from sleep at home, and standard earbuds do not address it. The Nightbuds embed EEG sensors that detect sleep onset from brainwave pattern shifts and automatically reduce audio levels as you go under — eliminating the 3am reach for a phone to pause something that's still playing. Designed specifically for aircraft and hotel environments. Plays audio until the brain transitions, then fades out. The on-plane presentation — unusual-looking earbuds worn with deliberate intent, the Apollo Neuro beside them on the wrist — is the kind of setup that invites a question from anyone paying attention in the next seat.</p>
+          <div class="use-case">
+            <span class="use-label">The moment it creates</span>
+            <p>You land in Tokyo sharp. The person in the same row of the same flight, who slept less deliberately, does not. The meeting that morning goes the way meetings go when one party is sharper than the other.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Long-Haul Travelers</span>
+            <span class="tag">Frequent Flyers</span>
+            <span class="tag">Performance-Conscious Professionals</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-rule"></div>
+    <p class="footer-text">The complete kit. Not one item earns its place through novelty. Each pays for itself in a single conversation, a single meeting, a single night of sleep at altitude — or in the absence of a problem that never became visible.</p>
+    <p class="footer-sig">The Hidden Layer &nbsp;·&nbsp; Field Equipment Reference</p>
+  </footer>
+
+</body>
+</html>
